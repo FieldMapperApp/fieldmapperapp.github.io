@@ -1,0 +1,345 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FieldMapper</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,600,700,800,900" rel="stylesheet">
+  <link rel="stylesheet" href="scribbler-global.css">
+  <link rel="stylesheet" href="scribbler-doc.css">
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+  <div class="doc__bg"></div>
+  <nav class="header">
+    <h1 class="logo">FieldMapper</h1>
+    <ul class="menu">
+      <div class="menu__item toggle"><span></span></div>
+      <li class="menu__item"><a href="index.html" class="link link--dark"><i class="fa fa-home"></i> Home</a></li>
+      <li class="menu__item"><a href="https://github.com/felluksch/FieldMapper" class="link link--dark"><i
+            class="fa fa-github"></i> Github</a></li>
+    </ul>
+  </nav>
+  <div class="wrapper">
+    <aside class="doc__nav">
+      <ul>
+        <li class="js-btn selected">Overview</li>
+        <li class="js-btn">Use Cases</li>
+        <li id="settings-btn">Settings</li>
+            <li class="js-btn" style="padding-left: 7px;">Variable Management</li>
+            <li class="js-btn" style="padding-left: 7px;">Options</li>
+            <li class="js-btn" style="padding-left: 7px;">Layer Management</li>
+        </li>
+        <li class="js-btn">Data Handling</li>
+      </ul>
+    </aside>
+    <article class="doc__content">
+      <section class="js-section" id="overview">
+        <h3 class="section__title">Overview</h3>
+        <p>
+          FieldMapper is a Cordova-powered android app that facilitates the collection of geo-referenced data in
+          fieldwork settings. Essentially, FieldMapper's interface lets you create features (= data points) with
+          user-generated attributes on a map. The data can then be exported to GIS software and further processed
+          according to your needs. FieldMapper offers the opportunity of creating either point features or
+          freehand-drawn line features, which enables users to utilise the app in all contexts where spatially coded
+          information needs to be transformed into a computer-processable data set. On top of that, you can import your
+          own layers and fine-tune the user experience with a variety of options.
+        </p>
+        <p>
+          The documentation covers all relevant topics from importing layers to post-processing the data. 
+          Before jumping right into it, I recommended familiarising yourself with the map interface first. 
+          You can find a clickable screenshot of the app with explanations on the <a href="index.html">landing page</a>.
+        </p>
+        <p>
+          Contributions to the project are most welcome. If you think the app lacks an important feature or its scope
+          should be broadened to render different use cases possible, I'd be happy to make this work. Also, if you
+          encounter bugs or struggle with the usage of the app, just drop me a line. I'm eager to hear from you if you
+          have used the app in your project. Please provide reference to FieldMapper where possible.
+        </p>
+      </section>
+      <section class="js-section" id="use-cases">
+        <h3 class="section__title">Use Cases</h3>
+        <p>FieldMapper comes in handy when you want to describe phenomena (objects and processes) as well as conceptions
+          thereof and it matters <em>where</em> these things happen or are perceived to have happened. Two general use
+          cases come to mind:</p>
+        <ol>
+          <li>
+            <p><strong>Observation of spatially bounded systems</strong><br>I developed the prototype of the app in
+              preparation for my Bachelor&#39;s dissertation research project where I conducted fieldwork in a
+              neighbourhood park. Among other things, I used the app to count visitors and the frequency of certain
+              demographic variables. Because all the data gathered through FieldMapper is tagged with coordinates, you
+              can easily detect spatial patterns and clusters of phenomena. You can add custom buttons to the map UI,
+              which gives you the opportunity to work with your own variables. Another feature that appears to be
+              especially useful in the study of social networks is the &quot;group&quot; functionality which enables you
+              to mark interaction between actors.
+              Yet, usage of the app is not limited to social research as one can easily imagine to survey abiotic
+              components of systems in addition to human actors or even exclusively.<sup><a href="#footnote1"
+                  id="ref1">[1]</a></sup> </p>
+          </li>
+          <li>
+            <p><strong>Mapping social routines and perception of place in social research</strong><br>Apart from
+              observing visitors, I also employed the app in the context of interviews. Visitors were asked to mark
+              areas they consider to be unsafe or their preferred spot under certain circumstances. In this context, the
+              ability to draw polylines freehand (which can be transformed into polygons using GIS software) proves
+              especially useful. Color codes, timestamps and free text comments are on hand for metadata tagging. </p>
+          </li>
+        </ol>
+        <p>Whether you are a sociologist who wants to observe people in public spaces systematically, an architecture or
+          urban planning student who wants to learn about the ways people navigate through the built environment in
+          order to optimise the infrastructural connection or the aesthetics of certain places, or even an ecologist
+          counting tree species&mdash;FieldMapper might be the tool you&#39;ve been looking for.</p>
+      </section>
+      <section class="js-section" id="variable-management"> 
+        <h3 class="section__title">Variable Management</h3>
+        <h4>Overview</h4>
+        <p>As your aim is to collect data that suits your research question, you probably want to work with a custom set
+          of variables tailored to your case.
+          These variables will actually determine the attributes of objects that you add to the map. Once you have
+          clicked on <em>Variable Management</em> in the settings tab, you are prompted to add a variable.
+          Now just enter the name of the new variable and press enter. The variable shows up in the list below.
+          Next to its name you can see two buttons: if you press the left button, you can <em>edit</em> the variable and
+          how it appears as a button in the map interface.
+          The right button will delete the variable. You can delete all variables at once if click on the three dots in
+          the upper right corner and choose &quot;Clear variables&quot;. Note that, if you do not edit the variable, it
+          will be operationalised as a boolean variable (see below).</p>
+        <h4>Choosing the right type</h4>
+        <p>If you click on the edit button, a page opens up where you can change the type, value and icon of the
+          variable (button).
+          First decide which kind of data you want to encode. Instead of variables we could also speak of attributes
+          since Type <em>Boolean</em> generates a single button that can be activated and deactivated.
+          Active state means &quot;true&quot;, inactive state means &quot;false&quot;.
+          This kind of button makes the most sense when the attribute only has two possible states (dichotomous
+          variable) and state 1 equals the negation of state 2, for instance &quot;wears hat/doesn&#39;t wear hat&quot;
+          (if you are only interested whether someone wears a hat and not which kind of hat). If you name the variable
+          &quot;Hat&quot; or &quot;Wears hat&quot; and choose Boolean as the variable type, &quot;Hat&quot; can be
+          either &quot;true&quot; or &quot;false&quot;.
+          If &quot;true&quot;/&quot;false&quot; does not make sense but you still want to operationalise the attribute
+          as a dichotomous variable, you can choose <em>Custom binary</em>.
+          You can now enter two comma-separated values. The first value will correspond to an inactive button.
+          As with most things, you can operationalise an attribute in more than one way. Instead of the following
+          configuration ...</p>
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Type</th>
+              <th>Values</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Hat</td>
+              <td>Boolean</td>
+              <td>(true, false)</td>
+            </tr>
+          </tbody>
+        </table>
+        <p>... you could also encode the same information with this configuration:</p>
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Type</th>
+              <th>Values</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Hat</td>
+              <td>Custom Binary</td>
+              <td>doesn&#39;t wear one, wears one</td>
+            </tr>
+          </tbody>
+        </table>
+        <p>In most cases, working with boolean variables (where reasonable) will make things easier.</p>
+        <p>Aside from these, you can also encode non-binary information.
+          Imagine you are actually interested in the type of hat a person wears. As there are more than two types of
+          hats, both other types do not work.
+          We need to choose type <em>Non-dichotomous</em> and enter all possible attribute states we are interest in.
+          In our case those could be &quot;Sombrero&quot;, &quot;Beanie&quot; and &quot;Kippah&quot;. Unlike the binary
+          types, this will generate not a single button with two states (active and inactive) but a bar of length n =
+          number of states/values.</p>
+        <h4>Using custom icons</h4>
+        <p>Once you have clicked the *Use SVG/PNG icon&quot; option, you can upload your own icons.
+          If you disable this option, the first two letters of the variable name (Boolean/Binary) or values
+          (Non-dichotomous) will show up as the button icon (which will suffice for most purposes if you do not have a
+          couple of variables that share the same initial letters or care much about a visual representation of the
+          attributes.)</p>
+        <p>You can find free SVG icons in icon libraries such as <a href="https://fontawesome.com/">FontAwesome</a> or
+          <a href="https://ionicons.com/">Ionicons</a>. Download them to your device and upload them using the dedicated
+          function in the edit menu of the variable.</p>
+        <hr />
+      </section>
+      <section class="js-section" id="options">
+        <h3 class="section__title">Options</h3>
+        <h4>Toolbars</h4>
+        <p>In this section of the options menu you can configure which toolbars you want to have in the map interface.
+          Have a look at the <a href="#map-interface">Map Interface section</a> of the documentation if you want to
+          find out about the purpose of the different toolbars.</p>
+        <h4>Other</h4>
+        <p>Let&#39;s break it down (the appearance of some options is dependent on whether you have enabled/disabled
+          certain functionalities):</p>
+        <ul>
+          <li>Allow deletion of imported features:
+            <p>If you have your own <a href="#layer-management">layers imported</a> into your map, here you can
+              determine
+              whether you want those to be affected when you delete features on the map (for example with the clear
+              button).</p>
+          </li>
+          <li>Include imported features in export:
+            <p>Similarly, here you can decide whether you want to include imported layers when you save the map state as
+              GeoJSON. (Imported layers will be saved as a separate file anyway.)</p>
+          </li>
+          <li>Enable comments:
+            <p>Choose whether you want to have a prompt pop up which asks you to add additional information on the
+              feature
+              after you add a feature to the map.</p>
+          </li>
+          <li>Only group features of same geometry type:
+            <p>If you have enabled the &quot;group&quot; functionality, you can determine whether the algorithm
+              distinguishes between points and lines when assigning features a group.
+              If enabled, points and lines can&#39;t be in the same group (which leads to groups like p/number/ and
+              l/number/), if disabled they can indeed be (simply /number/).</p>
+          </li>
+          <li>Automatically choose random color for groups:
+            <p>If enabled, the color bar disappears from the map interface and the app will iterate over the colors (see
+              below) and automatically color features belonging to the same group accordingly.</p>
+          </li>
+        </ul>
+        <h4>Feature colors</h4>
+        <p>Choose which colors you want to have in the game. Will affect both automatic (see above) and manual coloring
+          of features.</p>
+        <hr />
+      </section>
+      <section class="js-section" id="layer-management">
+        <h3 class="section__title">Layer Management</h3>
+        <h4>Overview</h4>
+        <p>FieldMapper allows you to import your own layers. It accepts both GeoJSON layers and image overlays.
+          The basic process of adding and editing layers is the same as for variables, so have a look at the <a
+            href="#variable-management">Variable Management section</a> if you struggle with the basics.</p>
+        <h4>GeoJSON and Image Overlay</h4>
+        <p>FieldMapper can handle two types of layers: GeoJSON and Image Overlay. GeoJSON is a popular and great to work
+          with geodata format. Just upload a GeoJSON file and the layer will appear on the map. (You can disable it in
+          the layers control of the map interface.)
+          GeoJSON is based on the JSON exchange format which looks as follows:</p>
+        <code>
+<pre class="code">
+
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "color": "green"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.38778495788574,
+          52.515803012883595
+        ]
+      }
+    }
+  ]
+}
+
+</pre>
+</code>
+        <p>If your imported GeoJSON features have a color attribute in their properties, FieldMapper will automatically
+          style them accordingly.</p>
+        <p>You can also upload a simple image to the app to account for more complex stylings that GeoJSON is not
+          capable of capturing. If you want to import an image overlay, you need to provide the bounds of the area the
+          image is meant to represent.</p>
+        <p>QGIS has an &quot;export as image&quot; function. If you want to export a layers as an image follow these
+          steps (tested with QGIS 3.8):</p>
+        <ol>
+          <li>
+            <p>Draw on top of a OSM layer or create your custom layers a different way.</p>
+          </li>
+          <li>
+            <p>Create a extent layer enclosing all relevant layers (in a spatial sense) and extract the layer extent
+              (<code>Vector &gt; Research Tools &gt; Extract Layer Extent...</code>).</p>
+          </li>
+          <li>
+            <p>Go to the attribute table of the resulting layer. You can now extract a pair of coordinates representing
+              two diagonally opposite corners of the image layer that you will be asked for in the edit menu of
+              FieldMapper:
+              <code>&lt;MINX&gt;, &lt;MINY&gt;</code> and <code>&lt;MAXX&gt;, &lt;MAXY&gt;</code>. Make sure the
+              coordinates are in WGS84 decimal degree format.</p>
+          </li>
+          <li>
+            <p>Select <code>File &gt; Import/Export &gt; Export Map to Image</code>. Calculate the extent using your
+              extent layer and click save.</p>
+          </li>
+        </ol>
+      </section>
+      <section class="js-section" id="data-handling">
+        <h3 class="section__title">Data Handling</h3>
+        <p>FieldMapper exports GeoJSON files.
+          All the attributes you added via the <a href="#variable-management">Variable Management</a>
+          interface are stored as properties of the exported features.
+          You can access these attributes in the attribute table of the layer after importing the layers into GIS
+          software (e.g. QGIS).
+          Now you can perform all kind of queries on the data, for example calculating the mean distance between points
+          (example use case: distance between home and favourite place for some activity) or rendering a heat
+          map.<sup><a href="#footnote2" id="ref2">[2]</a></sup>
+          With FieldMapper you can only create points and lines. Lines can be transformed into polygons really easy with
+          the help of GIS software.
+          In QGIS (tested with v3.8), just use the Polygonize function which can be accessed via
+          <code>Vector &gt; Geometry Tools &gt; Lines to Polygons</code>.</p>
+        <p>Every feature added to the map has a timestamp which serves as a unique ID (if you prefer a numerical ID you
+          can easily generate it from the timestamps with Excel, Python or whichever software/language you use). All
+          exported layers also have a timestamp in their file name.
+          If you combine FieldMapper with a digital questionnaire or other tools (one exported layer and questionnaire
+          per interviewee), you can use algorithms to bring together data from different timecoded sources.
+          You can link questionnaire items to FieldMapper features either with color codes (establish conventions where
+          you define that the item &quot;Where do your live?&quot; corresponds to blue features beforehand) or by using
+          the comments function and providing an item reference.
+          If you have a fixed interview procedure and the same number of features per item in every iteration of the
+          procedure you could also use the timetags to get item reference.</p>
+        <hr>
+
+
+
+        <section>
+          <p><strong><sub><a name="footnote1">[1]</a>:</sub></strong><sub>
+              Note that the app has difficulty mapping
+              processes such as the movement of actors in space. If you repeat surveying the same place, you can of
+              course
+              record changes in the number and location of actors. Every object placed on the map has a timestamp that
+              acts as its unique ID. Accordingly, you will have trouble identifying object A at place B in dataset 2 as
+              the same object A that was located 5 m left of B in dataset 1. If you&#39;re dealing with a multitude of
+              moving actors, it is unlikely that you are able to map (even discrete) movement anyway. If your survey
+              only
+              covers a limited number of (hardly mobile) actors you might be able to keep track of change in a system by
+              re-importing a layer depicting a prior state and moving markers manually and deleting/adding markers where
+              necessary.<a href="#ref1" title="Jump back to footnote 1 in the text."> ↩</a></sub>
+          </p>
+          <p><strong><sub><a name="footnote1">[2]</a>:</sub></strong><sub>
+              You can style point layers as heat maps in QGIS (tested with v3.8) by choosing &quot;heat map&quot; in the
+              Symbology section of the Layer Properties menu.
+              If the input layers are polygons and you want to calculate the heat from the degree of overlapping,
+              generate
+              random points in the polygons first
+              (<code>Vector &gt; Research Tools &gt; Random Points inside Polygons</code>).
+              <a href="#ref2" title="Jump back to footnote 1 in the text."> ↩</a></sub>
+          </p>
+        </section>
+    </article>
+  </div>
+
+  <footer class="footer">FieldMapper | &copy; Felix Schott 2020 | <a href="mailto:felix-schott@gmx.de"
+      style="color: white">Get in
+      touch!</a></footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <script src="scribbler.js"></script>
+</body>
+
+</html>
