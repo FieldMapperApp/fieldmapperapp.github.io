@@ -4,32 +4,42 @@ let img = document.getElementById('screenshot');
 let map = document.getElementById('image-map');
 let container = document.getElementsByClassName('screenshot-description')[0];
 
-let origHeight = img.naturalHeight;
-let origWidth = img.naturalWidth;
+let isMobile = window.matchMedia("only screen and (max-width: 760px)").matches;
 
-let height = img.offsetHeight;
-let width = img.offsetWidth;
+if (isMobile) {
+    img.style.visibility = "hidden";
+    container.innerHTML =
+        "<span>Oops, looks like the device you're using isn't big enough. Please visit again using a bigger device to show the interactive interface guide!</span>"
+} else {
+    scaleAreas()
+}
 
 // scale areas
 
-[...map.childNodes].filter(e => e.tagName == "AREA")
-    .forEach(e => {
-        let _coords = e.coords.split(',').map(Number);
-        coords = [
-            Math.round((_coords[0] / origWidth) * width),
-            Math.round((_coords[1] / origHeight) * height),
-            Math.round((_coords[2] / origWidth) * width),
-            Math.round((_coords[3] / origHeight) * height)
-        ];
-        e.coords = coords.join();
-    });
+function scaleAreas() {
 
+    let origHeight = img.naturalHeight;
+    let origWidth = img.naturalWidth;
+
+    let height = img.offsetHeight;
+    let width = img.offsetWidth;
+
+    [...map.childNodes].filter(e => e.tagName == "AREA")
+        .forEach(e => {
+            let _coords = e.coords.split(',').map(Number);
+            coords = [
+                Math.round((_coords[0] / origWidth) * width),
+                Math.round((_coords[1] / origHeight) * height),
+                Math.round((_coords[2] / origWidth) * width),
+                Math.round((_coords[3] / origHeight) * height)
+            ];
+            e.coords = coords.join();
+            e.addEventListener('mouseover', onMouseover);
+        });
+
+}
 
 // events
-
-[...map.childNodes].forEach(e => {
-    e.addEventListener('mouseover', onMouseover);
-});
 
 function onMouseover(e) {
     let elem = e.target;
