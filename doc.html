@@ -43,10 +43,10 @@
         <h3 class="section__title">Overview</h3>
         <p>
           FieldMapper is a Cordova-powered Android app that facilitates the collection of geo-referenced data in
-          fieldwork contexts. Essentially, FieldMapper's interface lets you create features (= data points) with
-          user-generated attributes on a map. The data can then be exported to GIS software and further processed.
+          fieldwork contexts. Essentially, FieldMapper's interface lets you create features (= data objects) with
+          user-generated attributes on a map. The data can then be exported into GIS software and further processed.
           FieldMapper offers the opportunity of creating either point features or
-          freehand-drawn line features, which enables users to utilise the app in all contexts where spatially coded
+          freehand-drawn line features, which enables users to utilise the app in all contexts where place-specific
           information needs to be transformed into a computer-processable data set. On top of that, you can import your
           own layers and fine-tune the user experience with a variety of options.
         </p>
@@ -56,30 +56,32 @@
           You can find a clickable screenshot of the app with explanations on the <a href="index.html">landing page</a>.
         </p>
         <p>
-          Contributions to the project are most welcome. If you think the app lacks an important feature or its scope
+          <a href="https://github.com/felluksch/FieldMapper/blob/master/CONTRIBUTING.md">Contributions</a> to the
+          project are most welcome. If you think the app lacks an important feature or its scope
           should be broadened to render different use cases possible, I'd be happy to make this work. Also, if you
-          encounter bugs or struggle with the usage of the app, just drop me a line. I'm eager to hear from you if you
+          encounter bugs or struggle with the usage of the app, just <a href="mailto:felix-schott@gmx.de">drop me a
+            line</a>. I'm eager to hear from you if you
           have used the app in your project. Please provide reference to FieldMapper where possible.
         </p>
+        <hr />
       </section>
       <section class="js-section" id="use-cases">
         <h3 class="section__title">Use Cases</h3>
         <p>FieldMapper comes in handy when it matters to you where the phenomena you are trying to capture take place.
-          Two general use
-          cases come to mind:</p>
+          Two general use cases come to mind:</p>
         <ol>
           <li>
             <p><strong>Observation of spatially bounded systems</strong><br>I developed the prototype of the app in
               preparation for my Bachelor&#39;s dissertation research project where I conducted fieldwork in a
               neighbourhood park. Among other things, I used the app to count visitors and the frequency of certain
-              demographic variables. Because all data gathered through FieldMapper is tagged with coordinates, you
-              can easily detect spatial patterns and clusters of phenomena with it. You can add custom buttons to the
+              demographic variables. Because all data gathered through FieldMapper is tagged with coordinates, one
+              can easily detect spatial patterns and clusters of phenomena with it. Users can add custom buttons to the
               map UI,
-              which gives you the opportunity to work with your own variables. Another feature that appears to be
-              especially useful in the study of social networks is the &quot;group&quot; functionality which enables you
+              which makes it possible to work with custom variables. Another feature that appears to be
+              especially useful in the study of social networks is the &quot;group&quot; functionality which enables users
               to mark interaction between actors.
-              Yet, usage of the app is not limited to social research as one can easily imagine to survey abiotic
-              components of systems in addition to human actors or even exclusively.<sup><a href="#footnote1"
+              Yet, usage of the app is not limited to social research as it would be possible to as well survey abiotic
+              components of systems.<sup><a href="#footnote1"
                   id="ref1">[1]</a></sup> </p>
           </li>
           <li>
@@ -87,7 +89,8 @@
               observing visitors, I also employed the app in the context of interviews. Visitors were asked to mark
               their home,
               areas they consider to be unsafe or their preferred spot under certain circumstances.
-              With FieldMapper, I was able to quantify the share of visitors living nearby and to calculate mean distances
+              With FieldMapper, I was able to quantify the share of visitors living nearby and to calculate mean
+              distances
               from their homes to the park surveyed and other places of interest.
               In contexts like
               this, the
@@ -95,6 +98,7 @@
               especially useful. Color codes, timestamps and free text comments are on hand for metadata tagging. </p>
           </li>
         </ol>
+        <hr />
       </section>
       <section class="js-section" id="variable-management">
         <h3 class="section__title">Variable Management</h3>
@@ -104,19 +108,19 @@
           These variables will actually determine the attributes of objects that you add to the map. Once you have
           clicked on <em>Variable Management</em> in the settings tab, you are prompted to add a variable.
           Now just enter the name of the new variable and press enter. The variable shows up in the list below.
-          Next to its name you can see two buttons: if you press the left button, you can <em>edit</em> the variable and
-          how it appears as a button in the map interface.
+          Next to its name you can see three buttons: by pressing the left button, you can re-order the list of variables. Changes will also affect the order of buttons added to the map UI.
+          The middle button lets you <em>edit</em> the variable values and change the appearance of the corresponding button.
           The right button will delete the variable. You can delete all variables at once by clicking on the three dots
           in
           the upper right corner and choosing &quot;Clear variables&quot;. Note that, if you do not edit the variable,
           it
           will be operationalised as a boolean variable (see below).</p>
         <h4>Choosing the right type</h4>
-        <p>If you click on the edit button, a page opens up where you can change the type, value and icon of the
+        <p>If you click on the edit button, a page opens up that allows you to change the type, value and icon of the
           variable (button).
           First decide which kind of data you want to encode. Type <em>Boolean</em> generates a single button that can
           be activated and deactivated.
-          Active state means &quot;true&quot;, inactive state means &quot;false&quot;.
+          Of these two button states, activate means &quot;true&quot; and inactive means &quot;false&quot;.
           This kind of button makes most sense when the attribute only has two possible states (dichotomous
           variable) and state 1 is the negation of state 2, for instance &quot;wears hat/doesn&#39;t wear hat&quot;
           (if you are only interested whether someone wears a hat and not which kind of hat). If you name the variable
@@ -171,9 +175,9 @@
           types, this will generate not a single button with two states (active and inactive) but a bar of length n =
           number of states/values.</p>
         <h4>Using custom icons</h4>
-        <p>Once you have clicked the *Use SVG/PNG icon&quot; option, you can upload your own icons.
-          If you disable this option, the first two letters of the variable name (Boolean/Binary) or values
-          (Non-dichotomous) will show up as the button icon (which will suffice for most purposes if you do not have a
+        <p>Once you have clicked the <i>Use SVG/PNG icon</i> option, you can upload your own icons.
+          If you disable this option, the first two letters of the variable name (if boolean or binary) or values
+          (if non-dichotomous) will show up as the button icon (which will suffice for most purposes if you do not have a
           couple of variables that share the same initial letters or care much about a visual representation of the
           attributes.)</p>
         <p>You can find free SVG icons in icon libraries such as <a href="https://fontawesome.com/">FontAwesome</a> or
@@ -191,7 +195,7 @@
         <p>Some options may only appear after you enable/disable particular toolbars.</p>
         <ul>
           <li>Allow deletion of imported features:
-            <p>If you have your own <a href="#layer-management">layers imported</a> into your map, here you can
+            <p>If you have <a href="#layer-management">imported</a> your own layers, here you can
               determine
               whether you want those to be affected when you delete features on the map (for example with the clear
               button).</p>
@@ -202,7 +206,7 @@
           </li>
           <li>Enable comments:
             <p>Choose whether you want to have a prompt pop up which asks you to add additional information on the
-              feature
+              object
               after you add a feature to the map.</p>
           </li>
           <li>Only group features of same geometry type:
@@ -283,6 +287,7 @@
               extent layer and click save.</p>
           </li>
         </ol>
+        <hr />
       </section>
       <section class="js-section" id="data-handling">
         <h3 class="section__title">Data Handling</h3>

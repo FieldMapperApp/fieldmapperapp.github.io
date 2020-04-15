@@ -7,7 +7,7 @@ let container = document.getElementsByClassName('screenshot-description')[0];
 let isMobile = window.matchMedia("only screen and (max-width: 760px)").matches;
 
 if (isMobile) {
-    img.style.visibility = "hidden";
+    img.style.display = "none";
     container.innerHTML =
         "<span>Oops, looks like the device you're using isn't big enough. Please visit again using a bigger device to show the interactive interface guide!</span>"
 } else {
@@ -62,29 +62,29 @@ let text = [
     },
     {
         name: "colorbar",
-        text: `Choose between different colors for the next feature added to the map.<br /> 
+        text: `Choose between different colors to style geo features.<br /> 
         You can set the available colors in the options.`
     },
     {
         name: "buttons",
-        text: `Variables (= attributes of the features that you add to the map) will show up as buttons after you add them through the Variable Management interface which you can find in the settings.<br />
+        text: `Variables (= attributes of the objects that you add to the map) will show up as buttons after adding them in the settings.<br />
         FieldMapper allows several ways to operationalise variables.`
     },
     {
         name: "status",
-        text: `The status field shows the current map center and zoom level.<br /> 
-        It will also show progress of other processes such as caching.`
+        text: `The status field shows the current map centre and zoom level.<br /> 
+        It will also show progress of processes such as caching.`
     },
     {
         name: "marker",
-        text: `Click on the map (or draw a line) to add a feature.<br /> 
-        The color of the feature, custom attribute values and the timestamp among other things are stored as properties of the features.<br />
+        text: `Click on the map (or draw a line) to add an object.<br /> 
+        The color of the feature, custom attribute values and the timestamp among other things will be stored as properties of the objects.<br />
         If the comments functionality is enabled, you can append additional remarks as text.`
     },
     {
         name: "layers",
         text: `Click here to show or hide layers.<br />
-        FieldMapper comes with an import function to work with your own layers that can be uploaded in the Layer Management menu. `
+        FieldMapper comes with an import function which enables you to work with your own layers. You can find it in the settings.`
     },
     {
         name: "zoom",
@@ -93,7 +93,7 @@ let text = [
     {
         name: "cache",
         text: `FieldMapper also works offline. <br />
-        Just click the cache button to store the current map boundaries for offline use.`
+        Just click the cache button to store the current map extent for offline use.`
     },
     {
         name: "undo",
@@ -101,12 +101,11 @@ let text = [
     },
     {
         name: "clear",
-        text: "Click here to delete all features on the map."
+        text: "A click on the button will delete all features on the map."
     },
     {
         name: "save",
-        text: `Click here to export map features together with all attributes as a GeoJSON file which can be imported into the GIS software of your choice.
-        `
+        text: "Click here to export all objects added to the map as a GeoJSON file. After exporting, you can work with the data in the environment of your choice."
     },
     {
         name: "locate",
@@ -114,7 +113,8 @@ let text = [
     },
     {
         name: "group",
-        text: "Use the group functionality to mark interaction between objects or relationships of all kinds that cannot be reasonably encoded in variables."
+        text: `Use the group functionality to mark interaction between objects or relationships of all kinds that cannot be reasonably encoded in variables.<br />
+        If the button is active, the next element you place on the map will share group membership with the previously added element(s).`
     }
 ];
 function getText(name) {
