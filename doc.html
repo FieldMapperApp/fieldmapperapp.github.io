@@ -43,10 +43,10 @@
         <h3 class="section__title">Overview</h3>
         <p>
           FieldMapper is a Cordova-powered Android app that facilitates the collection of geo-referenced data in
-          fieldwork contexts. Essentially, FieldMapper's interface lets you create features (= data objects) with
+          fieldwork contexts. Essentially, FieldMapper's interface lets you create objects with
           user-generated attributes on a map. The data can then be exported into GIS software and further processed.
-          FieldMapper offers the opportunity of creating either point features or
-          freehand-drawn line features, which enables users to utilise the app in all contexts where place-specific
+          FieldMapper offers the opportunity of creating either point objects or
+          freehand-drawn line objects, which enables users to utilise the app in all contexts where place-specific
           information needs to be transformed into a computer-processable data set. On top of that, you can import your
           own layers and fine-tune the user experience with a variety of options.
         </p>
@@ -78,11 +78,11 @@
               can easily detect spatial patterns and clusters of phenomena with it. Users can add custom buttons to the
               map UI,
               which makes it possible to work with custom variables. Another feature that appears to be
-              especially useful in the study of social networks is the &quot;group&quot; functionality which enables users
+              especially useful in the study of social networks is the &quot;group&quot; functionality which enables
+              users
               to mark interaction between actors.
               Yet, usage of the app is not limited to social research as it would be possible to as well survey abiotic
-              components of systems.<sup><a href="#footnote1"
-                  id="ref1">[1]</a></sup> </p>
+              components of systems.<sup><a href="#footnote1" id="ref1">[1]</a></sup> </p>
           </li>
           <li>
             <p><strong>Mapping social routines and perception of place in social research</strong><br>Apart from
@@ -108,8 +108,10 @@
           These variables will actually determine the attributes of objects that you add to the map. Once you have
           clicked on <em>Variable Management</em> in the settings tab, you are prompted to add a variable.
           Now just enter the name of the new variable and press enter. The variable shows up in the list below.
-          Next to its name you can see three buttons: by pressing the left button, you can re-order the list of variables. Changes will also affect the order of buttons added to the map UI.
-          The middle button lets you <em>edit</em> the variable values and change the appearance of the corresponding button.
+          Next to its name you can see three buttons: by pressing the left button, you can re-order the list of
+          variables. Changes will also affect the order of buttons added to the map UI.
+          The middle button lets you <em>edit</em> the variable values and change the appearance of the corresponding
+          button.
           The right button will delete the variable. You can delete all variables at once by clicking on the three dots
           in
           the upper right corner and choosing &quot;Clear variables&quot;. Note that, if you do not edit the variable,
@@ -177,7 +179,8 @@
         <h4>Using custom icons</h4>
         <p>Once you have clicked the <i>Use SVG/PNG icon</i> option, you can upload your own icons.
           If you disable this option, the first two letters of the variable name (if boolean or binary) or values
-          (if non-dichotomous) will show up as the button icon (which will suffice for most purposes if you do not have a
+          (if non-dichotomous) will show up as the button icon (which will suffice for most purposes if you do not have
+          a
           couple of variables that share the same initial letters or care much about a visual representation of the
           attributes.)</p>
         <p>You can find free SVG icons in icon libraries such as <a href="https://fontawesome.com/">FontAwesome</a> or
@@ -194,35 +197,35 @@
         <h4>Other</h4>
         <p>Some options may only appear after you enable/disable particular toolbars.</p>
         <ul>
-          <li>Allow deletion of imported features:
+          <li>Allow deletion of imported objects:
             <p>If you have <a href="#layer-management">imported</a> your own layers, here you can
               determine
-              whether you want those to be affected when you delete features on the map (for example with the clear
+              whether you want those to be affected when you delete objects on the map (for example with the clear
               button).</p>
           </li>
-          <li>Include imported features in export:
+          <li>Include imported layers in export:
             <p>Similarly, here you can decide whether you want to include imported layers when you save the map state as
               GeoJSON. (Imported layers will be saved as a separate file anyway.)</p>
           </li>
           <li>Enable comments:
             <p>Choose whether you want to have a prompt pop up which asks you to add additional information on the
               object
-              after you add a feature to the map.</p>
+              after you add an object to the map.</p>
           </li>
-          <li>Only group features of same geometry type:
+          <li>Only group objects of same geometry type:
             <p>If you have enabled the &quot;group&quot; functionality, you can determine whether the algorithm should
-              distinguish between points and lines when automatically assigning group membership to features.
+              distinguish between points and lines when automatically assigning group membership to objects.
               If enabled, points and lines can&#39;t be in the same group (which leads to groups like p/number/ and
               l/number/), if disabled they can be (/number/ without l or p).</p>
           </li>
           <li>Automatically choose random color for groups:
             <p>If enabled, the color bar disappears from the map interface and the app will iterate over the colors (see
-              below) and automatically color features belonging to the same group.</p>
+              below) and automatically color objects belonging to the same group the same.</p>
           </li>
         </ul>
-        <h4>Feature colors</h4>
+        <h4>Colors</h4>
         <p>Choose which colors you want to have in the game. Will affect both automatic (see above) and manual coloring
-          of features.</p>
+          of objects.</p>
         <hr />
       </section>
       <section class="js-section" id="layer-management">
@@ -258,7 +261,7 @@
 
 </pre>
 </code>
-        <p>If your imported GeoJSON features have a color attribute in their properties, FieldMapper will automatically
+        <p>If your imported GeoJSON objects have a color attribute in their properties, FieldMapper will automatically
           style them accordingly.</p>
         <p>FieldMapper can also handle image as layers which you might want to import to account for more complex
           stylings that GeoJSON is not
@@ -291,9 +294,10 @@
       </section>
       <section class="js-section" id="data-handling">
         <h3 class="section__title">Data Handling</h3>
-        <p>FieldMapper exports GeoJSON files.
-          All the attributes you added via the <a href="#variable-management">Variable Management</a>
-          interface are stored as properties of the exported features.
+        <p>FieldMapper exports GeoJSON files which can be accessed under
+          <code>data/io.github.fieldmapper/files/exports</code>.
+          All the attributes added via the <a href="#variable-management">Variable Management</a>
+          interface are stored as properties of the exported objects.
           You can access these attributes in the attribute table of the layer after importing the layers into GIS
           software (e.g. QGIS).
           After loading the export layers into GIS software, you can perform all kinds of queries on the data, for
@@ -303,7 +307,7 @@
           the help of GIS software.
           In QGIS (tested with v3.8), just use the Polygonize function which can be accessed via
           <code>Vector &gt; Geometry Tools &gt; Lines to Polygons</code>.</p>
-        <p>Every feature added to the map has a timestamp which serves as a unique ID (if you prefer a numerical ID you
+        <p>Every object added to the map has a timestamp which serves as a unique ID (if you prefer a numerical ID you
           can easily generate it from the timestamps with Excel, Python or whichever software/language you use). All
           exported layers also have a timestamp in their file name.
           The layer timestamp is helpful in integrating FieldMapper outputs with other timecoded datasets such as those
@@ -311,11 +315,11 @@
           If FieldMapper plays a part in a interview procedure where you gather textual data (with a questionnaire) and
           geodata (with FieldMapper), you can use closest-distance algorithms applied to the timestamps to establish
           cross-dataset reference.
-          You can further link questionnaire items to FieldMapper features either with color codes (establish
+          You can further link questionnaire items to FieldMapper objects either with color codes (establish
           conventions where
-          you define that the item &quot;Where do your live?&quot; corresponds to blue features beforehand) or by using
+          you define that the item &quot;Where do your live?&quot; corresponds to blue objects beforehand) or by using
           the comments function and providing an textual item reference (code).
-          If you have a fixed interview procedure and the same number of features per item in every iteration of the
+          If you have a fixed interview procedure and the same number of objects per item in every iteration of the
           procedure you could also use the timetags to get item reference.</p>
         <hr>
         <section>

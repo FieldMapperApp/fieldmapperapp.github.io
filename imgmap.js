@@ -57,12 +57,12 @@ function onMouseover(e) {
 let text = [
     {
         name: "modes",
-        text: `You can add point features to the map or draw lines (freehand). It is highly recommended using a stylus if your device supports it.<br />
+        text: `You can add point objects to the map or draw lines (freehand). It is highly recommended using a stylus if your device supports it.<br />
         Note that you can only drag the map while in point mode.`
     },
     {
         name: "colorbar",
-        text: `Choose between different colors to style geo features.<br /> 
+        text: `Choose between different colors to style map markers.<br /> 
         You can set the available colors in the options.`
     },
     {
@@ -78,7 +78,7 @@ let text = [
     {
         name: "marker",
         text: `Click on the map (or draw a line) to add an object.<br /> 
-        The color of the feature, custom attribute values and the timestamp among other things will be stored as properties of the objects.<br />
+        The color of the marker, custom attribute values and the timestamp among other things will be stored as properties of the objects.<br />
         If the comments functionality is enabled, you can append additional remarks as text.`
     },
     {
@@ -97,15 +97,15 @@ let text = [
     },
     {
         name: "undo",
-        text: "Click here to delete the last feature added to the map."
+        text: "Click here to delete the last object added to the map."
     },
     {
         name: "clear",
-        text: "A click on the button will delete all features on the map."
+        text: "A click on the button will delete all objects on the map."
     },
     {
         name: "save",
-        text: "Click here to export all objects added to the map as a GeoJSON file. After exporting, you can work with the data in the environment of your choice."
+        text: "Click here to export all objects added to the map as a GeoJSON file (saved under <code>data/io.github.fieldmapper/files/exports</code>). After exporting, you can work with the data in the environment of your choice."
     },
     {
         name: "locate",
