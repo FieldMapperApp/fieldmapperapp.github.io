@@ -68,7 +68,7 @@ let text = [
     {
         name: "buttons",
         text: `Variables (= attributes of the objects that you add to the map) will show up as buttons after adding them in the settings.<br />
-        FieldMapper allows several ways to operationalise variables.`
+        FieldMapper allows several ways to operationalize variables.`
     },
     {
         name: "status",
@@ -105,7 +105,7 @@ let text = [
     },
     {
         name: "save",
-        text: "Click here to export all objects added to the map as a GeoJSON file (saved under <code>data/io.github.fieldmapper/files/exports</code>). After exporting, you can work with the data in the environment of your choice."
+        text: "Click here to export all objects added to the map as a GeoJSON file (saved under <code>data/io.github.fieldmapperapp/files/exports</code>). After exporting, you can work with the data in the environment of your choice."
     },
     {
         name: "locate",

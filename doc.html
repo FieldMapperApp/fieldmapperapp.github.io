@@ -46,7 +46,7 @@
           fieldwork contexts. Essentially, FieldMapper's interface lets you create objects with
           user-generated attributes on a map. The data can then be exported into GIS software and further processed.
           FieldMapper offers the opportunity of creating either point objects or
-          freehand-drawn line objects, which enables users to utilise the app in all contexts where place-specific
+          freehand-drawn line objects, which enables users to utilize the app in all contexts where place-specific
           information needs to be transformed into a computer-processable data set. On top of that, you can import your
           own layers and fine-tune the user experience with a variety of options.
         </p>
@@ -108,7 +108,7 @@
           These variables will actually determine the attributes of objects that you add to the map. Once you have
           clicked on <em>Variable Management</em> in the settings tab, you are prompted to add a variable.
           Now just enter the name of the new variable and press enter. The variable shows up in the list below.
-          Next to its name you can see three buttons: by pressing the left button, you can re-order the list of
+          Next to its name you can see three buttons: by pressing and dragging the left button, you can re-order the list of
           variables. Changes will also affect the order of buttons added to the map UI.
           The middle button lets you <em>edit</em> the variable values and change the appearance of the corresponding
           button.
@@ -116,22 +116,22 @@
           in
           the upper right corner and choosing &quot;Clear variables&quot;. Note that, if you do not edit the variable,
           it
-          will be operationalised as a boolean variable (see below).</p>
+          will be operationalized as a boolean variable by default (see below).</p>
         <h4>Choosing the right type</h4>
         <p>If you click on the edit button, a page opens up that allows you to change the type, value and icon of the
           variable (button).
           First decide which kind of data you want to encode. Type <em>Boolean</em> generates a single button that can
           be activated and deactivated.
-          Of these two button states, activate means &quot;true&quot; and inactive means &quot;false&quot;.
+          Of these two button states, active means &quot;true&quot; and inactive means &quot;false&quot;.
           This kind of button makes most sense when the attribute only has two possible states (dichotomous
           variable) and state 1 is the negation of state 2, for instance &quot;wears hat/doesn&#39;t wear hat&quot;
           (if you are only interested whether someone wears a hat and not which kind of hat). If you name the variable
           &quot;Hat&quot; or &quot;Wears hat&quot; and choose Boolean as the variable type, &quot;Hat&quot; can be
           either &quot;true&quot; or &quot;false&quot;.
-          If &quot;true&quot;/&quot;false&quot; does not make sense but you still want to operationalise the attribute
+          If &quot;true&quot;/&quot;false&quot; does not make sense but you still want to operationalize the attribute
           as a dichotomous variable, you can choose <em>Custom binary</em>.
-          You can now enter two comma-separated values. The first value will correspond to an inactive button.
-          As with most things, you can operationalise an attribute in more than one way. Instead of the following
+          Now enter two comma-separated values. The first value will correspond to an inactive button.
+          As with most things, you can operationalize an attribute in more than one way. Instead of the following
           configuration ...</p>
         <table>
           <thead>
@@ -167,8 +167,8 @@
           </tbody>
         </table>
         <p>In most cases, working with boolean variables (where reasonable) will make things easier.</p>
-        <p>Aside from these, you can also encode non-binary data.
-          Imagine you are actually interested in the type of hat a person is wearing. As there are more than two kinds
+        <p>Aside from these, you can also encode information that does not fit a binary scheme.
+          Imagine you are interested in the type of hat a person is wearing. As there are more than two kinds
           of
           hats, both other variable types do not work.
           Therefore, we need to choose type <em>Non-dichotomous</em> and enter all possible attribute states we are
@@ -177,8 +177,8 @@
           types, this will generate not a single button with two states (active and inactive) but a bar of length n =
           number of states/values.</p>
         <h4>Using custom icons</h4>
-        <p>Once you have clicked the <i>Use SVG/PNG icon</i> option, you can upload your own icons.
-          If you disable this option, the first two letters of the variable name (if boolean or binary) or values
+        <p>Enable the <i>Use SVG/PNG icon</i> option to upload your own icons.
+          If the option is disabled, the first two letters of the variable name (if boolean or binary) or values
           (if non-dichotomous) will show up as the button icon (which will suffice for most purposes if you do not have
           a
           couple of variables that share the same initial letters or care much about a visual representation of the
@@ -191,9 +191,9 @@
       <section class="js-section" id="options">
         <h3 class="section__title">Options</h3>
         <h4>Toolbars</h4>
-        <p>In this section of the options menu you can configure which toolbars you want to have in the map interface.
+        <p>Configure which toolbars you want to have in the map interface by switching on and off the different toolbar options.
           Have a look at the interface guide on the <a href="index.html">landing page</a> to
-          find out about the purpose of the different toolbars.</p>
+          find out about the purpose of the different controls.</p>
         <h4>Other</h4>
         <p>Some options may only appear after you enable/disable particular toolbars.</p>
         <ul>
@@ -220,7 +220,7 @@
           </li>
           <li>Automatically choose random color for groups:
             <p>If enabled, the color bar disappears from the map interface and the app will iterate over the colors (see
-              below) and automatically color objects belonging to the same group the same.</p>
+              below) and automatically colorize objects belonging to the same group with the same color.</p>
           </li>
         </ul>
         <h4>Colors</h4>
@@ -263,7 +263,7 @@
 </code>
         <p>If your imported GeoJSON objects have a color attribute in their properties, FieldMapper will automatically
           style them accordingly.</p>
-        <p>FieldMapper can also handle image as layers which you might want to import to account for more complex
+        <p>FieldMapper can also handle images as layers which you might want to import to account for more complex
           stylings that GeoJSON is not
           capable of capturing. If you want to import an image overlay, you need to provide the bounds of the area the
           image is meant to represent.</p>
@@ -295,13 +295,13 @@
       <section class="js-section" id="data-handling">
         <h3 class="section__title">Data Handling</h3>
         <p>FieldMapper exports GeoJSON files which can be accessed under
-          <code>data/io.github.fieldmapper/files/exports</code>.
+          <code>data/io.github.fieldmapperapp/files/exports</code>.
           All the attributes added via the <a href="#variable-management">Variable Management</a>
           interface are stored as properties of the exported objects.
           You can access these attributes in the attribute table of the layer after importing the layers into GIS
           software (e.g. QGIS).
           After loading the export layers into GIS software, you can perform all kinds of queries on the data, for
-          example calculating the mean distance between points or rendering a heat
+          example calculating the mean distance between or Moran's I for points or rendering a heat
           map.<sup><a href="#footnote2" id="ref2">[2]</a></sup>
           With FieldMapper you can only create points and lines. Lines can be transformed into polygons really easy with
           the help of GIS software.
@@ -312,9 +312,9 @@
           exported layers also have a timestamp in their file name.
           The layer timestamp is helpful in integrating FieldMapper outputs with other timecoded datasets such as those
           generated by digital questionnaires.
-          If FieldMapper plays a part in a interview procedure where you gather textual data (with a questionnaire) and
-          geodata (with FieldMapper), you can use closest-distance algorithms applied to the timestamps to establish
-          cross-dataset reference.
+          If FieldMapper plays a part in an interview procedure where you gather textual data (with a questionnaire) and
+          geodata (with FieldMapper), you can computationally establish
+          cross-dataset object reference on the basis of the timestamps.
           You can further link questionnaire items to FieldMapper objects either with color codes (establish
           conventions where
           you define that the item &quot;Where do your live?&quot; corresponds to blue objects beforehand) or by using
