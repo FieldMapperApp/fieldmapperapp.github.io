@@ -14,6 +14,15 @@ if (isMobile) {
     scaleAreas()
 }
 
+// scale background
+
+
+let description = document.querySelector('.hero__description');
+let screenshot = document.querySelector('.screenshot-map');
+let distance = screenshot.getBoundingClientRect().bottom - screenshot.offsetHeight * 0.4 - description.getBoundingClientRect().bottom - description.offsetHeight * 3;
+document.querySelector('.hero').style.paddingBottom = distance.toString() + "px";
+screenshot.style.marginTop = "-" + distance.toString() + "px";
+
 // scale areas
 
 function scaleAreas() {

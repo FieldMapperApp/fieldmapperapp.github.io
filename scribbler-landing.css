@@ -13,7 +13,7 @@ nav {
 .hero {
   text-align: center;
   background-color: var(--bg-color);
-  padding: 2rem 0 10rem 0;
+  padding: 2rem 0 0 0;
 }
 
 .hero__title {
@@ -27,7 +27,7 @@ nav {
 
 .screenshot-map {
   width: 60%;
-  margin: -11rem auto 3rem auto;
+  margin: 0 auto 3rem auto;
   text-align: left;
   color: lightgrey;
   padding: 0 0.6vw;
@@ -39,7 +39,7 @@ nav {
 
 .screenshot-description {
   width: 100%;
-  padding: 4px;
+  padding: 0.5rem;
   font-weight: 300;
   transition: height .3s;
   overflow: hidden;
@@ -139,7 +139,7 @@ nav {
 /* changelog section */
 .changelog {
   background-color: var(--bg-color);
-  padding: 2rem 0;
+  padding: 0.5rem 0 2rem 0;
 }
 
 .changelog__item {
