@@ -128,7 +128,7 @@ nav {
 /* callout section */
 .callout {
   text-align: center;
-  padding: 1rem 0 3rem 0;
+  padding-bottom: 2rem;
 }
 
 .callout .button--primary {
